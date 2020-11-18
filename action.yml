@@ -1,0 +1,15 @@
+name: 'pycheck'
+description: 'GitHub Action for Python code check'
+inputs:
+  path:
+    description: 'check path'
+    required: false
+    default: './'
+outputs:
+  output:
+    description: 'The output of pycheck'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.path }}
