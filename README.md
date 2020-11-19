@@ -41,5 +41,5 @@ ignore_missing_imports = True
 ## For myself :3
 ```bash
 docker build . -t pycheck
-docker run -v $PWD:/workspace pycheck /workspace
+docker run --workdir /workspace -v $PWD:/workspace pycheck /workspace
 ```
