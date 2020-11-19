@@ -20,5 +20,6 @@ RUN pip install flake8 black mypy isort
 
 # entrypoint
 COPY entrypoint.sh /entrypoint.sh
+COPY module_finder.py /module_finder.py
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

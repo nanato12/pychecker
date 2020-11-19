@@ -39,6 +39,7 @@ echo -e "\n$(mypy --version)"
 for file_name in `find $@`; do
     if [ "py" == `basename $file_name | sed 's/^.*\.\([^\.]*\)$/\1/'` ];
     then
+        python /module_finder.py $file_name
         mypy --check $file_name
     fi
 done
