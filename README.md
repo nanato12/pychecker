@@ -1,4 +1,4 @@
-# pycheck
+# pychecker
 GitHub Action for Python code check  
 Pythonのコードチェック用のGitHub Action
 
@@ -16,7 +16,7 @@ Write `.github/workflows/main.yml`.
 
 ```yml
 - name: GitHub Action for Python code check
-  uses: nanato12/pycheck@master
+  uses: nanato12/pychecker@master
   with:
       path: './'
 ```
@@ -53,6 +53,6 @@ disallow_untyped_defs = True
 
 ## For myself :3
 ```bash
-docker build . -t pycheck
-docker run --workdir /workspace -v $PWD:/workspace pycheck /workspace
+docker build . -t pychecker
+docker run --workdir /workspace -v $PWD:/workspace pychecker /workspace
 ```

@@ -1,4 +1,4 @@
-name: 'pycheck'
+name: 'pychecker'
 description: 'GitHub Action for Python code check'
 inputs:
   path:
@@ -7,7 +7,7 @@ inputs:
     default: './'
 outputs:
   output:
-    description: 'The output of pycheck'
+    description: 'The output of pychecker'
 runs:
   using: 'docker'
   image: 'Dockerfile'

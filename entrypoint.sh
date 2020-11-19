@@ -5,7 +5,7 @@ ESC=$(printf '\033')
 RESET="${ESC}[0m"
 
 TARGET_PATH_COLOR="${ESC}[38;5;51m"
-PYCHECK_COLOR="${ESC}[38;5;190m"
+PYCHECKER_COLOR="${ESC}[38;5;190m"
 VERSION_COLOR="${ESC}[38;5;69m"
 SUCCESS_COLOR="${ESC}[38;5;120m"
 TIME_COLOR="${ESC}[38;5;14m"
@@ -15,10 +15,10 @@ set -ea
 
 echo -e "\nstart date: $(date)\n"
 
-echo -e "${PYCHECK_COLOR}"
+echo -e "${PYCHECKER_COLOR}"
 echo "##################################################"
 echo "#                                                #"
-echo "#                Starting pycheck                #"
+echo "#                Starting pychecker                #"
 echo "#                                                #"
 echo "##################################################"
 echo -e "\n${RESET}"
@@ -87,10 +87,10 @@ done
 TIME_B=`date +%s`
 ISORT_PROCCESS_TIME=$((TIME_B-TIME_A))
 
-echo -e "${PYCHECK_COLOR}"
+echo -e "${PYCHECKER_COLOR}"
 echo "##################################################"
 echo "#                                                #"
-echo "#                Complete pycheck                #"
+echo "#                Complete pychecker                #"
 echo "#                                                #"
 echo "##################################################"
 echo -e "${RESET}"
