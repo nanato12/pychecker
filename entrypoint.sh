@@ -36,10 +36,13 @@ FLAKE8_PROCCESS_TIME=$((TIME_B-TIME_A))
 # mypy
 TIME_A=`date +%s`
 echo -e "\n$(mypy --version)"
-for file_name in `find $@`; do
-    if [ "py" == `basename $file_name | sed 's/^.*\.\([^\.]*\)$/\1/'` ];
+for file_path in `find $@`; do
+    file_ext=`basename $file_path | sed 's/^.*\.\([^\.]*\)$/\1/'`
+    echo $file_ext
+    if [ -n "$file_ext" ] && [ "py" == "$file_ext" ];
     then
-        mypy --check $file_name
+        python /module_finder.py $file_path
+        mypy --check $file_path
     fi
 done
 TIME_B=`date +%s`
