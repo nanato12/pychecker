@@ -1,5 +1,8 @@
 name: 'pychecker'
 description: 'GitHub Action for Python code check'
+branding:
+  icon: 'check-square'
+  color: 'green'
 inputs:
   path:
     description: 'check path'
