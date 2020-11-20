@@ -1,12 +1,12 @@
 FROM python:3.9-alpine
 
 # add label
-LABEL "com.github.actions.name"="pycheck"
+LABEL "com.github.actions.name"="pychecker"
 LABEL "com.github.actions.description"="GitHub Action for Python code check"
 LABEL "com.github.actions.icon"="upload-cloud"
 LABEL "com.github.actions.color"="green"
-LABEL "com.github.actions.repository"="https://github.com/nanato12/pycheck"
-LABEL "com.github.actions.homepage"="https://github.com/nanato12/pycheck"
+LABEL "com.github.actions.repository"="https://github.com/nanato12/pychecker"
+LABEL "com.github.actions.homepage"="https://github.com/nanato12/pychecker"
 LABEL "com.github.actions.maintainer"="nanato12"
 
 # need packages
