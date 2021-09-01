@@ -51,7 +51,6 @@ echo -e "[flake8] ${SUCCESS_COLOR}success${RESET}"
 set +e
 TIME_A=`date +%s`
 echo -e "\n${VERSION_COLOR}$(mypy --version)${RESET}"
-echo "y" | mypy --install-types
 for file_name in `find $@`; do
     file_ext=`basename $file_name | sed 's/^.*\.\([^\.]*\)$/\1/'`
     if [ -z $file_ext ] || [ "py" != $file_ext ];
@@ -59,7 +58,7 @@ for file_name in `find $@`; do
         continue
     fi
     echo -en "[mypy] check: ${file_name}"
-    result=$(mypy --check $file_name)
+    result=$(mypy --check --install-types --non-interactive $file_name)
     if [ $? == 0 ];
     then
         echo -e "  ${SUCCESS_COLOR}success${RESET}"
