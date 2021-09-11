@@ -18,7 +18,7 @@ echo -e "\nstart date: $(date)\n"
 echo -e "${PYCHECKER_COLOR}"
 echo "##################################################"
 echo "#                                                #"
-echo "#                Starting pychecker                #"
+echo "#               Starting pychecker               #"
 echo "#                                                #"
 echo "##################################################"
 echo -e "\n${RESET}"
@@ -34,7 +34,7 @@ echo -e "${VERSION_COLOR}$(pip --version)${RESET}\n"
 # black
 TIME_A=`date +%s`
 echo -e "${VERSION_COLOR}$(black --version)${RESET}"
-black --check "$@"
+black --check --diff "$@"
 TIME_B=`date +%s`
 BLACK_PROCCESS_TIME=$((TIME_B-TIME_A))
 echo -e "[black] ${SUCCESS_COLOR}success${RESET}"
@@ -58,7 +58,7 @@ for file_name in `find $@`; do
         continue
     fi
     echo -en "[mypy] check: ${file_name}"
-    result=$(mypy --check $file_name)
+    result=$(mypy --check --install-types --non-interactive $file_name)
     if [ $? == 0 ];
     then
         echo -e "  ${SUCCESS_COLOR}success${RESET}"
@@ -81,7 +81,7 @@ for file_name in `find $@`; do
         continue
     fi
     echo -n "[isort] check: ${file_name}"
-    isort --check $file_name
+    isort --check --diff $file_name
     echo -e "  ${SUCCESS_COLOR}success${RESET}"
 done
 TIME_B=`date +%s`
@@ -90,7 +90,7 @@ ISORT_PROCCESS_TIME=$((TIME_B-TIME_A))
 echo -e "${PYCHECKER_COLOR}"
 echo "##################################################"
 echo "#                                                #"
-echo "#                Complete pychecker                #"
+echo "#               Complete pychecker               #"
 echo "#                                                #"
 echo "##################################################"
 echo -e "${RESET}"
